@@ -1,0 +1,81 @@
+<ion-view class="developer-view">
+  <ion-nav-title class="has-tabs-top">
+    <span>Developers</span>
+  </ion-nav-title>
+
+  <ion-tabs class="tabs-striped tabs-top tabs-color-light">
+
+    <ion-tab class="tab-title" title="PHP">
+      <ion-pane>
+        <ion-content>
+          <div class="list card developer" ng-repeat="dev in developers.PHP">
+            <div class="item title">
+              <h2 class="developer-name">{{dev.name}}</h2>
+            </div>
+            <div class="item item-image">
+              <img class="full-image developer-image" ng-src="{{dev.gravatar}}">
+            </div>
+            <div class="item item-body">
+              <div class="developer-tags">
+                <ul class="developer-tags-list">
+                  <li class="developer-tag-item">
+                     <span class="badge badge-energized">Contributions: {{dev.contributions}}</span>
+                  </li>
+                  <li class="developer-tag-item">
+                     <span class="badge badge-energized">Followers: {{dev.followers}}</span>
+                  </li>
+                </ul>
+              </div>
+              <p class="developer-bio" ng-bind-html="dev.location">
+              </p>
+              <div class="developer-buttons">
+                <div class="row">
+                  <div ng-if="dev.login" class="col">
+                    <a href="" ng-click="goToUrl('http://github.com/{{dev.login}}')" class="button button-small button-outline button-block">@{{dev.login}}</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ion-content>
+      </ion-pane>
+    </ion-tab>
+
+    <ion-tab class="tab-title" title="JS">
+      <ion-pane>
+        <ion-content>
+          <div class="list card developer" ng-repeat="dev in developers.JS">
+            <div class="item title">
+              <h2 class="developer-name">{{dev.name}}</h2>
+            </div>
+            <div class="item item-image">
+              <img class="full-image developer-image" ng-src="{{dev.gravatar}}">
+            </div>
+            <div class="item item-body">
+              <div class="developer-tags">
+                <ul class="developer-tags-list">
+                  <li class="developer-tag-item">
+                     <span class="badge badge-energized">Contributions: {{dev.contributions}}</span>
+                  </li>
+                  <li class="developer-tag-item">
+                     <span class="badge badge-energized">Followers: {{dev.followers}}</span>
+                  </li>
+                </ul>
+              </div>
+              <p class="developer-bio" ng-bind-html="dev.location">
+              </p>
+              <div class="developer-buttons">
+                <div class="row">
+                  <div ng-if="dev.login" class="col">
+                    <a href="" ng-click="goToUrl('http://github.com/{{dev.login}}')" class="button button-small button-outline button-block">@{{dev.login}}</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ion-content>
+      </ion-pane>
+    </ion-tab>
+
+  </ion-tabs>
+</ion-view>
