@@ -2,6 +2,8 @@ angular.module('devangelist.services', [])
 
 .service('Developers', function ($http, $q) {
 
+  var allData = [];
+
   this.getData = function() {
     var d = $q.defer();
 
@@ -16,8 +18,33 @@ angular.module('devangelist.services', [])
       });
 
       d.resolve({
-        "PHP": PHP,
-        "JS": JS
+        "PHP": PHP.slice(0,10),
+        "JS": JS.slice(0,10)
+      });
+
+    }).error(function(data) {
+      d.reject(data);
+    });
+
+    return d.promise;
+  };
+
+  this.getMoreData = function(end) {
+    var d = $q.defer();
+
+    $http.get('github-users-stats.json').success(function(data) {
+
+      var PHP = _.filter(data, function(result) {
+        return result.language === "PHP";
+      });
+
+      var JS = _.filter(data, function(result) {
+        return result.language === "JavaScript";
+      });
+
+      d.resolve({
+        "PHP": PHP.slice(0, end),
+        "JS": JS.slice(0, end)
       });
 
     }).error(function(data) {

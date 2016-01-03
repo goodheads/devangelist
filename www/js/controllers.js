@@ -12,16 +12,24 @@ angular.module('devangelist.controllers', [])
     noBackdrop: true
   });
 
+  var end = 20;
+
   Developers.getData().then(function(developers){
     $scope.developers = developers;
-    console.log("Developers", $scope.developers);
     $ionicLoading.hide();
   },function(err){
     $ionicLoading.hide();
   });
 
+  $scope.loadMore = function() {
+    Developers.getMoreData(end).then(function(developers){
+      $scope.developers = developers;
+      $scope.$broadcast('scroll.infiniteScrollComplete');
+    });
+    end += 10;
+  };
+
   $scope.goToUrl = function(url){
-    //use inAppBrowser plugin
     window.open(url, '_blank', 'location=yes');
   }
 })
