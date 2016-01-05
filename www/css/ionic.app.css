@@ -9810,3 +9810,8 @@ a.button {
       margin-right: 8px; }
     .developer-view .developer-buttons .col:last-child {
       margin-left: 8px; }
+
+.about-view .rounded-image {
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto; }

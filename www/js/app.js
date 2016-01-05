@@ -64,5 +64,5 @@ angular.module('devangelist', ['ionic', 'devangelist.controllers', 'devangelist.
       }
     });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/developers');
+  $urlRouterProvider.otherwise('/app/about');
 });

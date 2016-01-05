@@ -39,6 +39,11 @@ angular.module('devangelist.controllers', [])
 })
 
 .controller('AboutCtrl', function($scope, $stateParams) {
+
+  $scope.goToUrl = function(url){
+    window.open(url, '_blank', 'location=yes');
+  }
+
 });
 
 
