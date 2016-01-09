@@ -5,6 +5,7 @@ angular.module('devangelist.controllers', [])
 })
 
 .controller('DeveloperCtrl', function($scope, $ionicLoading, Developers) {
+
   $scope.developers = [];
 
   $ionicLoading.show({
